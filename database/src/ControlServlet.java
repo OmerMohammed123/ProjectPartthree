@@ -22,22 +22,36 @@ import java.sql.PreparedStatement;
 
 public class ControlServlet extends HttpServlet {
 	    private static final long serialVersionUID = 1L;
-	    private userDAO userDAO = new userDAO();
+	    private userDAO userdao = new userDAO();
+	    private clientdao clientdao = new clientdao();
+	    private requestsdao requestdao = new requestsdao();
+	    private quotesdao quotedao = new quotesdao();
+	    private orderofworkdao orderofworkdao = new orderofworkdao();
+	    private billdao billdao = new billdao();
+	    
 	    
 	    
 	    private String currentUser;
-	    private HttpSession session=null;
+	    private HttpSession session = null;
+	    
+	    public void init()
+	    {
+	    	userdao = new userDAO();
+	    	clientdao = new clientdao();
+	    	requestdao = new requestsdao();
+	    	quotedao = new quotesdao();
+	    	orderofworkdao = new orderofworkdao();
+	    	billdao = new billdao();
+	    	
+	    	currentUser= "";
+	    }
 	    
 	    public ControlServlet()
 	    {
 	    	
 	    }
 	    
-	    public void init()
-	    {
-	    	
-	    	currentUser= "";
-	    }
+	   
 	    
 	    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	        doGet(request, response);
@@ -58,6 +72,27 @@ public class ControlServlet extends HttpServlet {
         	case "/initialize":
         		Initialize(request,response);
         		break;
+        	case "registerClient":
+        		registerClient(request, response);
+        		
+        	case "registerRequest":
+        		registerRequest(request, response);
+        		
+        	case "registerQuote":
+        		registerQuote(request,response);
+        		
+        	//////////////////////////////////////////////////////////
+        	case "/quit":
+        		quit(request, response);
+        		break;
+        	case "/response":
+        		response(request, response);
+        		break;
+        		
+        	case "/agree":
+        		agree(request, response);
+        		break;
+        //////////////////////////////////////////////////////////		
         	case "/root":
         		rootPage(request,response, "");
         		break;
@@ -80,7 +115,7 @@ public class ControlServlet extends HttpServlet {
 	        System.out.println("listUser started: 00000000000000000000000000000000000");
 
 	     
-	        List<user> listUser = userDAO.listAllUsers();
+	        List<user> listUser = userdao.listAllUsers();
 	        request.setAttribute("listUser", listUser);       
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("UserList.jsp");       
 	        dispatcher.forward(request, response);
@@ -90,7 +125,12 @@ public class ControlServlet extends HttpServlet {
 	    	        
 	    private void rootPage(HttpServletRequest request, HttpServletResponse response, String view) throws ServletException, IOException, SQLException{
 	    	System.out.println("root view");
-			request.setAttribute("listUser", userDAO.listAllUsers());
+			request.setAttribute("listUser", userdao.listAllUsers());
+			request.setAttribute("listClients", clientdao.listAllClients());
+			request.setAttribute("listQuotes", quotedao.listAllQuotes());
+			request.setAttribute("listTreeRequests", requestdao.listAllRequests());
+			request.setAttribute("listOrderOfWork", orderofworkdao.listAllOrders());
+			request.setAttribute("listBills", billdao.listAllBills());
 	    	request.getRequestDispatcher("rootView.jsp").forward(request, response);
 	    }
 	    
@@ -106,7 +146,7 @@ public class ControlServlet extends HttpServlet {
 				 rootPage(request, response, "");
 				 request.getRequestDispatcher("rootView.jsp").forward(request, response);
 	    	 }
-	    	 else if(userDAO.isValid(username, password)) 
+	    	 else if(userdao.isValid(username, password)) 
 	    	 {
 			 	 
 			 	 currentUser = username;
@@ -136,10 +176,10 @@ public class ControlServlet extends HttpServlet {
 	   	 	String confirm = request.getParameter("confirmation");
 	   	 	
 	   	 	if (password.equals(confirm)) {
-	   	 		if (!userDAO.checkUsername(username)) {
+	   	 		if (!userdao.checkUsername(username)) {
 		   	 		System.out.println("Registration Successful! Added to database");
 		            user users = new user(username, password, role);
-		   	 		userDAO.insert(users);
+		   	 		userdao.insert(users);
 		   	 		response.sendRedirect("login.jsp");
 	   	 		}
 		   	 	else {
@@ -154,17 +194,72 @@ public class ControlServlet extends HttpServlet {
 	   		 request.getRequestDispatcher("register.jsp").forward(request, response);
 	   	 	}
 	    }    
+	    
+	    
+	    private void registerClient(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	        String firstName = request.getParameter("firstName");
+	        String lastName = request.getParameter("lastName");
+	        String address = request.getParameter("address");
+	        String creditCard = request.getParameter("creditCard");
+	        String phoneNumber = request.getParameter("phoneNumber");
+	        String email = request.getParameter("email");
+	        client Client = new client(firstName, lastName, address, creditCard, phoneNumber, email);
+	        
+	        clientdao.insert(Client);
+	        System.out.println("Client Registration Successful!");
+	        
+	        response.sendRedirect("Clientportal.jsp");
+	        
+	    }
+	    
+	    private void registerQuote(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	    	String initialPrice = request.getParameter("initialPrice");
+	        String timeWindow = request.getParameter("timeWindow");
+	        String note = request.getParameter("note");
+
+	        quotes Quote = new quotes(initialPrice, note, timeWindow);
+	        
+	        quotedao.insert(Quote);
+	        System.out.println("Quote Registration Successful!");
+	        response.sendRedirect("request.jsp");
+	    }
+	    
+	    private void registerRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	    	String size = request.getParameter("size");
+	        String height = request.getParameter("height");
+	        String location = request.getParameter("location");
+	        String nearHouse = request.getParameter("nearHourse");
+	        String note = request.getParameter("note");
+	        
+	        requests request1 = new requests();
+	        
+	        requestdao.insert(request1);
+	        System.out.println("Quote Registration Successful!");
+	        response.sendRedirect("request.jsp");
+	    }
+	    
+	    
+	    private void agree(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	    	quotes Quote = new quotes();
+	    	quotedao.update(Quote);
+	    }
+	    
+	    private void quit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	    	quotes Quote = new quotes();
+	    	quotedao.update(Quote);
+	    }
+	    
+	    private void response(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+	    	quotes Quote = new quotes();
+	    	quotedao.update(Quote);
+	    }
+
+	    
+	    
 	    private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
 	    	currentUser = "";
         		response.sendRedirect("login.jsp");
         	}
-	
-	    
-
-	     
-        
-	    
-	    
 	    
 	    
 	    

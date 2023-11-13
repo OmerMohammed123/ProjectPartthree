@@ -46,6 +46,7 @@ public class userDAO
                 throw new SQLException(e);
             }
             connect = (Connection) DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/testdb?allowPublicKeyRetrieval=true&useSSL=false&user=john&password=yaHareemu123@");            System.out.println(connect);
+            System.out.println(connect);
         }
     }
     
@@ -232,7 +233,7 @@ public class userDAO
         statement =  (Statement) connect.createStatement();
         
         String[] INITIAL = {"drop database if exists testdb; ",
-					      
+					       
 					        "use testdb; ",
 					        "drop table if exists User; ",
 					        ("CREATE TABLE if not exists User( " +
