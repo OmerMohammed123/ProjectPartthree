@@ -1,39 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Initialize Database</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>User Login</title>
+<!-- Bootstrap CSS -->
+
 </head>
 <body>
- <center>	<h1> Login </h1> </center>
- 
-	<div align="center">
-		<p> ${loginFailedStr} </p>
-		<form action="login" method="post">
-			<table border="1" cellpadding="5">
-				<tr>
-					<th>User name: </th>
-					<td>
-						<input type="text" name="username" size="45" autofocus>
-					</td>
-				</tr>
-				<tr>
-					<th>Password: </th>
-					<td> 
-						<input type="password" name="password" size="45">
-					</td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center">
-					 <input type="submit" value="Login"/>
-						
-					</td>
-				</tr>
-			</table>
-			<a href="register.jsp" target="_self">Register Here</a>
+
+	<div class="container mt-5">
+		<h2 class="mb-4">David Smith Login</h2>
+		<form method="post" action="LoginServlet.jsp">
+			<div class="form-group">
+				<label for="userName">UserName:</label> <input type="text"
+					class="form-control" id="userName" name="userName" required="true" />
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password:</label> <input type="password"
+					class="form-control" id="password" name="password" required="true" />
+			</div>
+
+			<button type="submit" class="btn btn-primary">Login</button>
 		</form>
 	</div>
+	
+	<a href="registration.jsp"> Register  </a>
+
+	<!-- Bootstrap JS and dependencies -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

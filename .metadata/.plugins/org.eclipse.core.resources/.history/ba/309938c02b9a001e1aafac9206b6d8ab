@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>User Signup</title>
+    <style>
+        body {
+            background-color: #f8f9fa; /* Set your desired background color */
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Set the container height to the full viewport height */
+        }
+
+        form {
+            width: 300px; /* Set your desired form width */
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-3 {
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="text-center">
+        <h2>User Signup</h2>
+
+        <form action="SignUpServlet.jsp" method="post">
+            <!-- Your form fields go here -->
+
+            <button type="submit">Signup</button>
+        </form>
+
+        <a href="userlogin.jsp" class="mt-3">Go To Login Page</a>
+    </div>
+</div>
+
+</body>
+</html>
+

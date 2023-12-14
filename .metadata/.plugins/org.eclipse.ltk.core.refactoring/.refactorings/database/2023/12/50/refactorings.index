@@ -1,0 +1,91 @@
+1702510363145	Delete elements
+1702511441232	Copy compilation unit
+1702511532459	Copy compilation unit
+1702511540640	Copy compilation unit
+1702511548915	Copy compilation unit
+1702511556649	Copy compilation unit
+1702511562833	Copy compilation unit
+1702511570328	Copy compilation unit
+1702511581860	Copy compilation unit
+1702511602248	Copy compilation unit
+1702511608918	Copy compilation unit
+1702511613554	Copy compilation unit
+1702511662388	Delete element
+1702511830204	Delete element
+1702511878325	Delete element
+1702511884882	Delete element
+1702511889644	Delete element
+1702511900696	Delete element
+1702511920875	Delete element
+1702511929131	Delete element
+1702511934420	Delete element
+1702511939385	Delete element
+1702512171573	Delete element
+1702512194675	Copy compilation unit
+1702512198717	Copy compilation unit
+1702512240257	Delete element
+1702512243316	Copy compilation unit
+1702512248475	Copy compilation unit
+1702512251132	Copy compilation unit
+1702512257369	Copy compilation unit
+1702512258976	Copy compilation unit
+1702512260224	Copy compilation unit
+1702512281926	Delete element
+1702512286112	Delete element
+1702512290942	Delete element
+1702512295164	Delete element
+1702512299053	Delete element
+1702512302748	Delete element
+1702512307002	Delete element
+1702512998229	Copy compilation unit
+1702513004255	Copy compilation unit
+1702513007756	Copy compilation unit
+1702513010426	Copy compilation unit
+1702513026186	Delete element
+1702513031157	Delete element
+1702513039241	Delete element
+1702513047208	Delete element
+1702513051093	Delete element
+1702525286256	Delete element
+1702525301239	Rename resource 'vieweOrder.jsp'
+1702525309255	Rename resource 'UserSignp.jsp'
+1702525716628	Rename resource 'clientNavbar.jsp'
+1702525842443	Rename resource 'UserSign.jsp'
+1702525857132	Rename resource 'userlogin.jsp'
+1702525872334	Rename resource 'specifiedfunctionalities.jsp'
+1702525883134	Rename resource 'manageBills.jsp'
+1702525891739	Rename resource 'manageOrders.jsp'
+1702525900731	Rename resource 'incomingRequests.jsp'
+1702525913478	Rename resource 'DavidSmithNavBar.jsp'
+1702525925125	Rename resource 'ClientRequestServlet.jsp'
+1702525984183	Rename package 'Model'
+1702526016572	Rename package 'Helper'
+1702526092908	Rename resource 'rootDashboard.jsp'
+1702526149957	Rename type 'BillsDAO'
+1702526165631	Rename type 'BillsMessagesDAO'
+1702526179173	Rename type 'OrdersDAO'
+1702526194988	Rename type 'QuotesMessagesDAO'
+1702526207133	Rename type 'SpecifiedFunctionalitiesDAO'
+1702526228335	Rename type 'QuoteRespons'
+1702526247190	Rename type 'QuotesMessages'
+1702526269906	Rename type 'ClientRequestServlet'
+1702526284879	Rename type 'RootUserInterfaceServlet'
+1702526540847	Rename field 'schedulestart'
+1702526560961	Rename field 'scheduleend'
+1702526573562	Rename field 'userid'
+1702526579977	Rename field 'billid'
+1702526586859	Rename field 'msgtime'
+1702526610533	Rename field 'quoteid'
+1702526619285	Rename field 'schedulestart'
+1702526628906	Rename field 'scheduleend'
+1702526637143	Rename field 'scheduleEnd'
+1702526664009	Rename field 'userid'
+1702526671034	Rename field 'quoteid'
+1702526678315	Rename field 'msgtime'
+1702526685913	Rename field 'schedulestart'
+1702526694531	Rename field 'scheduleend'
+1702526717272	Rename field 'contractorid'
+1702526725395	Rename field 'clientid'
+1702526733012	Rename field 'schedulestart'
+1702526741768	Rename field 'scheduleend'
+1702526775124	Rename field 'distanceFromHouse'

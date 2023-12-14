@@ -1,0 +1,54 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="Structure.Quotes"%>
+<%@ page import="DAO.QuotesDAO"%>
+<%@ page import="Helper.ConnectionProvider"%>
+<%@ page import="Structure.Users"%>
+
+
+
+<!-- client_request.jsp -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Client's Request for Quote</title>
+<!-- Bootstrap CSS -->
+
+</head>
+<body>
+
+	<%@include file="client_Navbar.jsp"%>
+	<div class="container mt-5">
+		<h2>Submit Request for Quote</h2>
+		<form action="ClientRequestServlet.jsp" method="post">
+			<!-- Display user information -->
+			
+
+			<!-- Additional fields for quote request -->
+			<div class="mb-3">
+				<label for="initialPrice" class="form-label">Initial Price:</label>
+				<input type="text" class="form-control" name="initialPrice" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="timeWindow" class="form-label">Time Window:</label> <input
+					type="date" class="form-control" name="timeWindow" required>
+			</div>
+
+			<div class="mb-3">
+				<label for="note" class="form-label">Note:</label>
+				<textarea class="form-control" name="note" rows="4"></textarea>
+			</div>
+
+			<button type="submit" class="btn btn-primary">Register a
+				Quote</button>
+		</form>
+	</div>
+
+	
+</body>
+</html>
