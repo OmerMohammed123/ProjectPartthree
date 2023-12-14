@@ -1,4 +1,4 @@
-I went by myself for this project, I essentially created everthing on my own. Total time worked was 3 days
+Me and Mario worked on this for a week and a half totaling 20 hours of work. Mario helped create the functionality while I helped review and made changes to it. There were issues with the code when running on the MacOS software system however the code does run on a windows machine. I helped mario understand the code functionality as well as the SQL. The role of jsp files fell under me primaryly and I helped with designing them while Mario worked more with serverside. 
 
 Instructions to install:
 
